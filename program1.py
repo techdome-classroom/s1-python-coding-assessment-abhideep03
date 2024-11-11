@@ -6,10 +6,10 @@ class Solution:
             if i < 0 or i >= len(grid) or j < 0 or j >= len(grid[0]) or grid[i][j] == 'W' or visited[i][j]:
                 return
             visited[i][j] = True
-            dfs(i + 1, j)
-            dfs(i - 1, j)
-            dfs(i, j + 1)
-            dfs(i, j - 1)
+            DFS(i + 1, j)
+            DFS(i - 1, j)
+            DFS(i, j + 1)
+            DFS(i, j - 1)
 
         rows, cols = len(grid), len(grid[0])
         visited = [[False] * cols for _ in range(rows)]
