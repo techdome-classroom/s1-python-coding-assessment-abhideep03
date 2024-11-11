@@ -9,16 +9,13 @@ class Solution:
         visited = [[False for _ in range(cols)] for _ in range(rows)]
 
         def dfs(r, c):
-        # Base case: if out of bounds or on water or already visited, return
-        if r < 0 or r >= rows or c < 0 or c >= cols or grid[r][c] == 'W' or visited[r][c]:
-            return
-        # Mark the cell as visited
-        visited[r][c] = True
-        # Explore the adjacent cells (up, down, left, right)
-        dfs(r - 1, c)
-        dfs(r + 1, c)
-        dfs(r, c - 1)
-        dfs(r, c + 1)
+            if r < 0 or r >= rows or c < 0 or c >= cols or grid[r][c] == 'W' or visited[r][c]:
+                return
+            visited[r][c] = True
+            dfs(r - 1, c)
+            dfs(r + 1, c)
+            dfs(r, c - 1)
+            dfs(r, c + 1)
 
     island_count = 0
     for r in range(rows):
