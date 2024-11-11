@@ -1,5 +1,5 @@
 def decode_message( s: str, p: str) -> bool:
-    m, n = len(message), len(key)
+    m, n = len(s), len(key)
     dp = [[False] * (n + 1) for _ in range(m + 1)]
     dp[0][0] = True
 
@@ -10,6 +10,6 @@ def decode_message( s: str, p: str) -> bool:
             elif key[j - 1] == '*':
                 dp[i][j] = dp[i - 1][j] or dp[i][j - 1] or dp[i - 1][j - 1]
             else:
-                dp[i][j] = dp[i - 1][j - 1] and message[i - 1] == key[j - 1]
+                dp[i][j] = dp[i - 1][j - 1] and s[i - 1] == key[j - 1]
 
     return dp[m][n]
