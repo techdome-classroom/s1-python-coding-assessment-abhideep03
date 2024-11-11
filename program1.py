@@ -17,13 +17,12 @@ class Solution:
             dfs(r, c - 1)
             dfs(r, c + 1)
 
-    island_count = 0
-    for r in range(rows):
-        for c in range(cols):
-            if grid[r][c] == 'L' and not visited[r][c]:
-                # Start a DFS from every unvisited 'L' to mark the entire island
-                dfs(r, c)
-                island_count += 1
+        island_count = 0
+        for r in range(rows):
+            for c in range(cols):
+                if grid[r][c] == 'L' and not visited[r][c]:
+                    dfs(r, c)
+                    island_count += 1
 
     return island_count
 
