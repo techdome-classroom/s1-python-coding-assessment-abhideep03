@@ -12,5 +12,4 @@ def decode_message( s: str, p: str) -> bool:
             else:
                 dp[i][j] = dp[i - 1][j - 1] and message[i - 1] == key[j - 1]
 
-    return dp[m][n]  
-        return False
+    return dp[m][n]
