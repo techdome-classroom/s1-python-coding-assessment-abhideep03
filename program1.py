@@ -13,7 +13,7 @@ class Solution:
 
         rows, cols = len(grid), len(grid[0])
         visited = [[False] * cols for _ in range(rows)]
-        islands = 0
+        distinct_islands = 0
 
         for i in range(rows):
             for j in range(cols):
