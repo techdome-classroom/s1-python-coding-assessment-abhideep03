@@ -18,7 +18,7 @@ class Solution:
         for i in range(rows):
             for j in range(cols):
                 if grid[i][j] == 'L' and not visited[i][j]:
-                    dfs(i, j)
+                    DFS(i, j)
                     islands += 1
 
         return islands
