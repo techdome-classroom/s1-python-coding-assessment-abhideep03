@@ -24,4 +24,4 @@ class Solution:
                     dfs(r, c)
                     island_count += 1
 
-        return island_count
+        print(island_count)
