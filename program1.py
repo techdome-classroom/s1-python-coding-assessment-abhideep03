@@ -5,10 +5,10 @@ class Solution:
         if not grid or not grid[0]:
             return 0
 
-    rows, cols = len(grid), len(grid[0])
-    visited = [[False for _ in range(cols)] for _ in range(rows)]
+        rows, cols = len(grid), len(grid[0])
+        visited = [[False for _ in range(cols)] for _ in range(rows)]
 
-    def dfs(r, c):
+        def dfs(r, c):
         # Base case: if out of bounds or on water or already visited, return
         if r < 0 or r >= rows or c < 0 or c >= cols or grid[r][c] == 'W' or visited[r][c]:
             return
