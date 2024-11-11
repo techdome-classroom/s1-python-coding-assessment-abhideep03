@@ -2,26 +2,23 @@ class Solution:
    
     def getTotalIsles(self, grid: list[list[str]]) -> int:
     #    write your code here
-        if not grid or not grid[0]:
-            return 0
+    def dfs(i, j):
+        if i < 0 or i >= len(grid) or j < 0 or j >= len(grid[0]) or grid[i][j] == 'W' or visited[i][j]:
+            return
+        visited[i][j] = True
+        dfs(i + 1, j)
+        dfs(i - 1, j)
+        dfs(i, j + 1)
+        dfs(i, j - 1)
 
-        rows, cols = len(grid), len(grid[0])
-        visited = [[False for _ in range(cols)] for _ in range(rows)]
+    rows, cols = len(grid), len(grid[0])
+    visited = [[False] * cols for _ in range(rows)]
+    islands = 0
 
-        def dfs(r, c):
-            if r < 0 or r >= rows or c < 0 or c >= cols or grid[r][c] == 'W' or visited[r][c]:
-                return
-            visited[r][c] = True
-            dfs(r - 1, c)
-            dfs(r + 1, c)
-            dfs(r, c - 1)
-            dfs(r, c + 1)
+    for i in range(rows):
+        for j in range(cols):
+            if grid[i][j] == 'L' and not visited[i][j]:
+                dfs(i, j)
+                islands += 1
 
-        island_count = 0
-        for r in range(rows):
-            for c in range(cols):
-                if grid[r][c] == 'L' and not visited[r][c]:
-                    dfs(r, c)
-                    island_count += 1
-
-        return island_count
+    return islands
