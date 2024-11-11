@@ -11,14 +11,14 @@ class Solution:
             dfs(i, j + 1)
             dfs(i, j - 1)
 
-    rows, cols = len(grid), len(grid[0])
-    visited = [[False] * cols for _ in range(rows)]
-    islands = 0
+        rows, cols = len(grid), len(grid[0])
+        visited = [[False] * cols for _ in range(rows)]
+        islands = 0
 
-    for i in range(rows):
-        for j in range(cols):
-            if grid[i][j] == 'L' and not visited[i][j]:
-                dfs(i, j)
-                islands += 1
+        for i in range(rows):
+            for j in range(cols):
+                if grid[i][j] == 'L' and not visited[i][j]:
+                    dfs(i, j)
+                    islands += 1
 
-    return islands
+        return islands
